@@ -12,10 +12,10 @@ import { HiArrowUpRight } from "react-icons/hi2";
 import { MdErrorOutline } from "react-icons/md";
 
 import Image from "next/image";
-import RecentCardRequests from "@/component/RecentCardRequests";
-import MonthlyIssuance from "@/component/MonthlyIssuance";
-import WeeklyIncome from "@/component/WeeklyIncome";
-import CardStatusDistribution from "@/component/CardStatusDistribution";
+import RecentCardRequests from "@/app/component/RecentCardRequests";
+import MonthlyIssuance from "@/app/component/MonthlyIssuance";
+import WeeklyIncome from "@/app/component/WeeklyIncome";
+import CardStatusDistribution from "@/app/component/CardStatusDistribution";
 
 const cardData = [
   { id: 1, label: "Manage a Card", icon: manageCard },

@@ -3,7 +3,7 @@
 import { generalDashboard } from "@/utils/Dashboard-links";
 import React, { useState } from "react";
 import { FaBars } from "react-icons/fa";
-import logo from "../../../public/svg/LAPO_Logo_2022-removebg-preview 1.svg";
+import logo from "../../../../public/svg/LAPO_Logo_2022-removebg-preview 1.svg";
 import Image from "next/image";
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);

@@ -2,7 +2,7 @@ import React from "react";
 import { CgHome } from "react-icons/cg";
 import { PiBellLight } from "react-icons/pi";
 import { FiUser } from "react-icons/fi";
-import SearchBar from "../../component/SearchBar";
+import HeaderSearchBar from "../../component/HeaderSearchBar";
 
 const Header = () => {
   return (
@@ -13,7 +13,7 @@ const Header = () => {
           <p>Dashboard</p>
         </div>
         <div className="flex items-center gap-3">
-        <SearchBar/>
+        <HeaderSearchBar/>
           <PiBellLight size={30}/>
           <div className="bg-[#F2F4F7] rounded-full">
   <FiUser size={30} className="p-2" />
