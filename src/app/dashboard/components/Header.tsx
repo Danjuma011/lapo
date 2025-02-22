@@ -13,7 +13,7 @@ const Header = () => {
           <p>Dashboard</p>
         </div>
         <div className="flex items-center gap-3">
-        <HeaderSearchBar/>
+        <HeaderSearchBar placeholder="Search"/>
           <PiBellLight size={30}/>
           <div className="bg-[#F2F4F7] rounded-full">
   <FiUser size={30} className="p-2" />

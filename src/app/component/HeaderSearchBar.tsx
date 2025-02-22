@@ -23,7 +23,7 @@ const HeaderSearchBar: FC<ISearch> = ({ className, search, setSearch, placeholde
         onChange={handleSearch}
       />
       <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-        <CiSearch className="text-gray-500" size={20} />
+        <CiSearch className="text-gray-500 font-bold" size={20} />
       </div>
     </div>
   );

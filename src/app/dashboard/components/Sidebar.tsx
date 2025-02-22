@@ -1,11 +1,15 @@
 "use client";
 
-import { generalDashboard } from "@/utils/Dashboard-links";
+import { generalDashboard } from "@/app/utils/Dashboard-links";
 import React, { useState } from "react";
 import { FaBars } from "react-icons/fa";
 import logo from "../../../../public/svg/LAPO_Logo_2022-removebg-preview 1.svg";
 import Image from "next/image";
+import cadinfra from "../../../../public/svg/cadinfra.svg"
+import {useRouter} from "next/navigation";
 const Sidebar = () => {
+  const router = useRouter()
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -24,23 +28,27 @@ const Sidebar = () => {
 
       {/* Sidebar */}
       <aside
-        className={`fixed lg:relative h-screen border w-64 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed lg:relative h-screen  w-64 transform transition-transform duration-300 ease-in-out border-r-2 ${
           isOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
         }`}
+
+        
       >
         <Image
           src={logo}
           alt="logo"
-          width={0} // Set the desired width
-          height={0} // Set the desired height
-          layout="responsive" // Makes the image scale with its container
+          width={138} 
+          height={45}
+          layout="responsive" 
           className="my-5"
         />
 
         <div className="p-4">
-          {/* <p className="text-[#808080]">
+          <p
+          onClick={()=> router.push("/dashboard")}
+          className="text-[#808080] font-medium text-xs p-2 cursor-pointer">
   Dashboard
-</p> */}
+</p>
           <h2 className="font-medium text-[8px] text-[#7E8B9C] ml-3 mb-3">
             MAIN MENU
           </h2>
@@ -64,6 +72,18 @@ const Sidebar = () => {
                 </a>
               </li>
             ))}
+
+            <p className="font-medium text-xs p-2">Logout</p>
+
+            <p className="text-[8px] font-medium text-[#808080] p-2">POWERED BY</p>
+            <Image
+          src={cadinfra}
+          alt="cadinfra"
+          width={93} 
+          height={43} 
+          layout="responsive p-2" 
+          className="my-5"
+        />
           </ul>{" "}
         </div>
       </aside>

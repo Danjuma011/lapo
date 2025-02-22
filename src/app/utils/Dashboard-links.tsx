@@ -52,7 +52,7 @@ export const generalDashboard = [
     },
     {
       label: "  Card Profile   ",
-      href: "/dashboard/user-management",
+      href: "/dashboard/card-profile",
       icon: MdOutlineManageAccounts,
       boldIcon: MdManageAccounts,
     },

@@ -8,28 +8,24 @@ const RecentCardRequests = () => {
       cardType: 'Instant',
       quantity: 10,
       status: 'Ready',
-      action: 'View'
     },
     {
       branch: 'Corporate',
       cardType: 'Personalized',
       quantity: 10,
       status: 'In Progress',
-      action: 'View'
     },
     {
       branch: 'Corporate',
       cardType: 'Personalized',
       quantity: 10,
       status: 'Acknowledged',
-      action: 'View'
     },
     {
       branch: 'Corporate',
       cardType: 'Instant',
       quantity: 10,
       status: 'Pending',
-      action: 'View'
     }
   ];
 
@@ -75,7 +71,7 @@ const RecentCardRequests = () => {
               </td>
               <td className="py-3">
                 <button className="text-blue-500 px-3 py-1 rounded hover:text-blue-800">
-                  {request.action}
+                  View
                 </button>
               </td>
             </tr>
