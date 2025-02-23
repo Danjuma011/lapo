@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { MdArrowForwardIos } from "react-icons/md";
 import manageCard from "@public/svg/Frame 1618867979.svg";
