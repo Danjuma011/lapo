@@ -31,12 +31,26 @@ const Page = () => {
         <hr className="my-2 h-[5px] text-[#98A2B3]" />
         <div className="flex justify-between items-center w-full">
           <div className="w-[320px]">
-          <SearchBar placeHolder="Search by card name" search={search} setSearch={setSearch} />
-
+            <SearchBar
+              placeHolder="Search by card name"
+              search={search}
+              setSearch={setSearch}
+            />
           </div>
-          
-          <button
+
+          {/* <button
             onClick={() => router.push(`${pathName}/create`)}
+            className="bg-[#014DAF] text-[#fefefe] text-sm font-semibold py-2.5 px-5 rounded-md flex items-center gap-2 whitespace-nowrap hover:bg-[#013B82] focus:outline-none focus:ring-2 focus:ring-blue-300"
+          >
+            <FaPlus className="flex-shrink-0" />
+            <span>Add Profile</span>
+          </button> */}
+          <button
+            onClick={() => {
+              if (typeof window !== "undefined") {
+                router.push(`${pathName}/create`);
+              }
+            }}
             className="bg-[#014DAF] text-[#fefefe] text-sm font-semibold py-2.5 px-5 rounded-md flex items-center gap-2 whitespace-nowrap hover:bg-[#013B82] focus:outline-none focus:ring-2 focus:ring-blue-300"
           >
             <FaPlus className="flex-shrink-0" />
@@ -63,12 +77,25 @@ const Page = () => {
               <tbody>
                 {filteredCards.length > 0 ? (
                   filteredCards.map((request, index) => (
-                    <tr key={index} className="border border-gray-300 text-center text-[10px] font-normal text-[#475467]">
-                      <td className="py-3 border border-gray-300">{request.cardName}</td>
-                      <td className="py-3 border border-gray-300">{request.curency}</td>
-                      <td className="py-3 border border-gray-300">{request.expiration}</td>
-                      <td className="py-3 border border-gray-300">{request.binPrefix}</td>
-                      <td className="py-3 border border-gray-300">{request.dateCreated}</td>
+                    <tr
+                      key={index}
+                      className="border border-gray-300 text-center text-[10px] font-normal text-[#475467]"
+                    >
+                      <td className="py-3 border border-gray-300">
+                        {request.cardName}
+                      </td>
+                      <td className="py-3 border border-gray-300">
+                        {request.curency}
+                      </td>
+                      <td className="py-3 border border-gray-300">
+                        {request.expiration}
+                      </td>
+                      <td className="py-3 border border-gray-300">
+                        {request.binPrefix}
+                      </td>
+                      <td className="py-3 border border-gray-300">
+                        {request.dateCreated}
+                      </td>
                       <td className="py-3 flex justify-center gap-3">
                         <button className="text-[#475467]">
                           <RiDeleteBinLine className="text-[20px]" />
