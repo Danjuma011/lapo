@@ -14,7 +14,7 @@ const RequestDetailsHeader = () => {
 
   return (
     <header className="border border-b-2  p-4 bg-[#fefefe] ">
-      <div className="flex justify-between">
+      <div className="flex justify-between items-center ml-12 lg:ml-0">
         <div className="flex items-center gap-3">
           <GoBack />
           <Image

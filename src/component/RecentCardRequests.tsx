@@ -1,43 +1,52 @@
-import React from 'react';
+"use client";
+import { useRouter } from "next/navigation";
+import React from "react";
 import { BsArrowsAngleExpand } from "react-icons/bs";
 
 interface RecentCardRequestsProps {
-  className?: string; // Optional className prop
+  className?: string;
 }
 
-  const RecentCardRequests: React.FC<RecentCardRequestsProps> = ({ className }) => {
+const RecentCardRequests: React.FC<RecentCardRequestsProps> = ({
+  className,
+}) => {
   const cardRequests = [
     {
-      branch: 'Corporate',
-      cardType: 'Instant',
+      branch: "Corporate",
+      cardType: "Instant",
       quantity: 10,
-      status: 'Ready',
+      status: "Ready",
     },
     {
-      branch: 'Corporate',
-      cardType: 'Personalized',
+      branch: "Corporate",
+      cardType: "Personalized",
       quantity: 10,
-      status: 'In Progress',
+      status: "In Progress",
     },
     {
-      branch: 'Corporate',
-      cardType: 'Personalized',
+      branch: "Corporate",
+      cardType: "Personalized",
       quantity: 10,
-      status: 'Acknowledged',
+      status: "Acknowledged",
     },
     {
-      branch: 'Corporate',
-      cardType: 'Instant',
+      branch: "Corporate",
+      cardType: "Instant",
       quantity: 10,
-      status: 'Pending',
-    }
+      status: "Pending",
+    },
   ];
+
+  const router = useRouter();
 
   return (
     <div className={` h-96 p-4 bg-white shadow-md rounded-lg ${className}`}>
-      <div className='flex justify-between'>
-        <h2 className='text-lg font-medium mb-3'>Recent Card Requests</h2>
-        <BsArrowsAngleExpand className="cursor-pointer" />
+      <div className="flex justify-between">
+        <h2 className="text-lg font-medium mb-3">Recent Card Requests</h2>
+        <BsArrowsAngleExpand
+          onClick={() => router.push("/card-request")}
+          className="cursor-pointer"
+        />
       </div>
 
       <table className="w-full">
@@ -52,22 +61,25 @@ interface RecentCardRequestsProps {
         </thead>
         <tbody>
           {cardRequests.map((request, index) => (
-            <tr key={index} className="border-b text-center text-[10px] font-normal text-[#475467]">
+            <tr
+              key={index}
+              className="border-b text-center text-[10px] font-normal text-[#475467]"
+            >
               <td className="py-3">{request.branch}</td>
               <td className="py-3">{request.cardType}</td>
               <td className="py-3">{request.quantity}</td>
               <td className="py-3">
                 <span
                   className={`inline-flex items-center px-2 py-1 rounded-full border ${
-                    request.status === 'Ready'
-                      ? 'border-[#ABEFC6] bg-[#ECFDF3] text-[#067647]'
-                      : request.status === 'In Progress'
-                      ? 'border-[#FEDF89] bg-[#FFFAEB] text-[#B54708]'
-                      : request.status === 'Acknowledged'
-                      ? 'border-[#B2DDFF] bg-[#EFF8FF] text-[#175CD3]'
-                      : request.status === 'Pending'
-                      ? 'border-[#EAECF0] bg-[#F9FAFB] text-[#344054]'
-                      : 'border-gray-500 bg-gray-100 text-gray-500' // Fallback for unknown statuses
+                    request.status === "Ready"
+                      ? "border-[#ABEFC6] bg-[#ECFDF3] text-[#067647]"
+                      : request.status === "In Progress"
+                      ? "border-[#FEDF89] bg-[#FFFAEB] text-[#B54708]"
+                      : request.status === "Acknowledged"
+                      ? "border-[#B2DDFF] bg-[#EFF8FF] text-[#175CD3]"
+                      : request.status === "Pending"
+                      ? "border-[#EAECF0] bg-[#F9FAFB] text-[#344054]"
+                      : "border-gray-500 bg-gray-100 text-gray-500"
                   }`}
                 >
                   {request.status}

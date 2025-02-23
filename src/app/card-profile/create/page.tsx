@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import { CardDetails } from "@/app/utils/type";
-import { usePathname } from "next/navigation";
 import { cardDetailsSchema } from "@/app/utils/validation/card";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, type Resolver, type SubmitHandler } from "react-hook-form";
@@ -52,9 +51,6 @@ const Page: React.FC = () => {
       branchBlacklist: data.branchBlacklist,
     });
   };
-
-  const pathName = usePathname();
-  console.log("path", pathName);
 
   return (
     <div>
@@ -170,12 +166,7 @@ const Page: React.FC = () => {
           </button>
         </form>
 
-        {showFeeModal && (
-          <FeeModal
-            setShowModal={setShowFeeModal}
-            // addFee={"Add Fee"}
-          />
-        )}
+        {showFeeModal && <FeeModal setShowModal={setShowFeeModal} />}
       </div>
     </div>
   );
