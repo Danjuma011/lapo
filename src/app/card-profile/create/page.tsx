@@ -12,17 +12,10 @@ import Dropdown from "@/app/utils/dropDown";
 import { FaPlus } from "react-icons/fa";
 import Table from "@/app/utils/Table";
 import FeeModal from "@/app/utils/modal/FeeModal";
-// import { cardProfile } from "@/utils/db";
+import CreateProfileHeader from "@/app/components/create-profile-header";
 
 const Page: React.FC<CardProfile> = () => {
-  const [showFeeModal, setShowFeeModal] = useState(false);
-
-  //   useEffect(() => {
-  //     if (deletedMessage) {
-  //       setShowFeeModal(false);
-  //         router.push(route);
-  //     }
-  // }, [deletedMessage])
+  const [showFeeModal, setShowFeeModal] = useState(false)
 
   const headers = [
     "Name",
@@ -70,6 +63,9 @@ const Page: React.FC<CardProfile> = () => {
   // const router = useRouter()
 
   return (
+    <div>
+    <CreateProfileHeader/>
+
     <div className=" rounded-lg px-3 pb-5 pt-3 ">
       <h1 className="font-bold text-lg mb-1">Create Profile</h1>
       <p className="text-[#475467] font-normal text-sm mb-5">
@@ -77,7 +73,7 @@ const Page: React.FC<CardProfile> = () => {
       </p>
 
       <form onSubmit={handleSubmit(onSubmit)} className="w-full">
-        <div className=" rounded-lg pl-4 py-3 lg:pr-44 pr-4">
+        <div className=" rounded-lg pl-4 pt-3 pb-6 xl:pr-40 pr-4 bg-[#fefefe]">
           <p className="mb-5">Profile Details</p>
           {/* TaskFormValues */}
           <div className="flex flex-wrap gap-4 w-[100%] justify-between ">
@@ -160,7 +156,7 @@ const Page: React.FC<CardProfile> = () => {
           </div>
         </div>
 
-        <div className=" mt-2 rounded-lg pt-4 px-3 pb-20">
+        <div className=" mt-4 rounded-lg pt-4 px-3 pb-20 bg-[#fefefe]">
           <p className="mb-4">Fees</p>
           <button
             onClick={() => setShowFeeModal(true)}
@@ -186,6 +182,7 @@ const Page: React.FC<CardProfile> = () => {
           // addFee={"Add Fee"}
         />
       )}
+    </div>
     </div>
   );
 };

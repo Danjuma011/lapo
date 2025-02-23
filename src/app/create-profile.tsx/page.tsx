@@ -1,5 +1,5 @@
 "use client";
-import SearchBar from "@/app/component/HeaderSearchBar";
+import SearchBar from "@/component/HeaderSearchBar";
 import { CardProfile } from "@/app/utils/type";
 import React from "react";
 

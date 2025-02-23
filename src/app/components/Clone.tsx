@@ -1,21 +1,23 @@
 import React from "react";
 import { MdArrowForwardIos } from "react-icons/md";
-import manageCard from "../../../public/svg/Frame 1618867979.svg";
-import issueInstantCard from "../../../public/svg/Frame 1618867979 (1).svg";
-import issuePersonalizedCard from "../../../public/svg/Frame 1618867979 (2).svg";
-import reviewCardRequests from "../../../public/svg/Frame 1618867979 (3).svg";
-import bankNote from "../../../public/svg/bank-note-01.svg";
-import creditCard from "../../../public/svg/credit-card-check.svg";
-import crediCardEdit from "../../../public/svg/credit-card-edit.svg";
-import hourglass from "../../../public/svg/hourglass-03.svg";
+import manageCard from "../../../../public/svg/Frame 1618867979.svg";
+import issueInstantCard from "../../../../public/svg/Frame 1618867979 (1).svg";
+import issuePersonalizedCard from "../../../../public/svg/Frame 1618867979 (2).svg";
+import reviewCardRequests from "../../../../public/svg/Frame 1618867979 (3).svg";
+import bankNote from "../../../../public/svg/bank-note-01.svg";
+import creditCard from "../../../../public/svg/credit-card-check.svg";
+import crediCardEdit from "../../../../public/svg/credit-card-edit.svg";
+import hourglass from "../../../../public/svg/hourglass-03.svg";
 import { HiArrowUpRight } from "react-icons/hi2";
 import { MdErrorOutline } from "react-icons/md";
 
 import Image from "next/image";
-import RecentCardRequests from "@/app/component/RecentCardRequests";
-import MonthlyIssuance from "@/app/component/MonthlyIssuance";
-import WeeklyIncome from "@/app/component/WeeklyIncome";
-import CardStatusDistribution from "@/app/component/CardStatusDistribution";
+import RecentCardRequests from "@/component/RecentCardRequests";
+import MonthlyIssuance from "@/component/MonthlyIssuance";
+import WeeklyIncome from "@/component/WeeklyIncome";
+import CardStatusDistribution from "@/component/CardStatusDistribution";
+import Header from "./Header";
+// import Header from "./Header";
 
 const cardData = [
   { id: 1, label: "Manage a Card", icon: manageCard },
@@ -71,9 +73,12 @@ const analyticsCard = [
   },
 ];
 
-const Page = () => {
+const Clone = () => {
   return (
     <>
+<Header />
+
+
       <p className="text-lg font-bold mb-1">
         Hi Nazeer, what would you like to do today?
       </p>
@@ -89,7 +94,7 @@ const Page = () => {
           {cardData.map((card) => (
             <div
               key={card.id}
-              className="flex-shrink-0 flex items-center bg-[#F1F7FF] p-2 pl-4 rounded-lg w-[278px] gap-4 hover:bg-[#E0E7FF] transition-colors"
+              className="flex-shrink-0 flex items-center bg-[#F1F7FF] p-2 pl-4 rounded-lg w-[23.5%] gap-4 hover:bg-[#E0E7FF] transition-colors"
             >
               <Image src={card.icon} alt="manageCard" width={24} height={24} />
               <span className="text-sm font-medium">{card.label}</span>
@@ -103,7 +108,7 @@ const Page = () => {
         <hr className="flex-grow border-t border-gray-300" />
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4 justify-between">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-4 justify-between">
         {analyticsCard.map((card, index) => (
           <div
             key={index}
@@ -165,4 +170,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default Clone;

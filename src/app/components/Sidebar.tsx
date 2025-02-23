@@ -2,14 +2,14 @@
 
 import { generalDashboard } from "@/app/utils/Dashboard-links";
 import React, { useState } from "react";
-import { FaBars } from "react-icons/fa";
-import logo from "../../../../public/svg/LAPO_Logo_2022-removebg-preview 1.svg";
+import logo from "@public/svg/LAPO_Logo_2022-removebg-preview 1.svg";
 import Image from "next/image";
-import cadinfra from "../../../../public/svg/cadinfra.svg";
+import cadinfra from "@public/svg/cadinfra.svg";
 import { useRouter } from "next/navigation";
 import { GrHomeRounded } from "react-icons/gr";
 import { usePathname } from "next/navigation";
 import { CiLogin } from "react-icons/ci";
+import img from "@public/svg/home.svg";
 
 const Sidebar = () => {
   const router = useRouter();
@@ -26,15 +26,24 @@ const Sidebar = () => {
       {/* Hamburger Icon (visible on small screens) */}
       <button
         onClick={toggleSidebar}
-        className="lg:hidden fixed top-4 left-4 z-20 p-2  text-white rounded"
+        className="lg:hidden fixed top-4 left-4 z-20 p-2  text-[#000000] rounded"
       >
-        <FaBars size={24} />
+       <Image
+           src={img}
+           alt="manageCard"
+           width={20}
+           height={20}
+           className="mb-1"
+         />
       </button>
 
       {/* Sidebar */}
       <aside
-  className={`fixed lg:relative h-screen w-64 transform transition-transform duration-300 ease-in-out border-r-2 flex flex-col`}
+  className={`fixed lg:relative h-screen w-64 transform transition-transform duration-300 ease-in-out border-r-2 flex flex-col 
+    ${isOpen ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0 bg-white z-20 overflow-y-auto`}
 >
+
+
   <Image
     src={logo}
     alt="logo"
@@ -48,13 +57,13 @@ const Sidebar = () => {
 
   <div className="p-4 flex-grow">
     <p
-      onClick={() => router.push("/dashboard")}
+      onClick={() => router.push("/")}
       className={`rounded-sm font-medium text-xs px-3 py-2 cursor-pointer flex items-center gap-3 hover:bg-[#F1F7FF] ${
-        pathname === "/dashboard" ? "text-[#014DAF]" : "text-[#808080]"
+        pathname === "/" ? "text-[#014DAF]" : "text-[#808080]"
       }`}
     >
       <GrHomeRounded
-        className={pathname === "/dashboard" ? "text-[#014DAF]" : "text-[#808080]"}
+        className={pathname === "/" ? "text-[#014DAF]" : "text-[#808080]"}
       />
       Dashboard
     </p>
@@ -67,7 +76,7 @@ const Sidebar = () => {
           <a
             href={item.href}
             className={`flex items-center p-2 hover:bg-[#F1F7FF] rounded transition-colors ${
-              location.pathname === item.href ? "bg-gray-700" : ""
+              location.pathname === item.href ? "bg-[#F6F6F6]" : ""
             }`}
           >
             {item.icon &&
@@ -77,7 +86,8 @@ const Sidebar = () => {
                 <item.icon className="w-4 h-4 mr-3 text-[#808080]" />
               ))}
 
-            <span className="font-normal text-xs text-[#00000080]">
+            <span className="font-normal text-xs text-[#808080]"
+            >
               {item.label}
             </span>
           </a>
@@ -104,12 +114,13 @@ const Sidebar = () => {
 </aside>
 
 
-      {isOpen && (
-        <div
-          onClick={toggleSidebar}
-          className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-10"
-        ></div>
-      )}
+{isOpen && (
+  <div
+    onClick={toggleSidebar}
+    className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-10"
+  ></div>
+)}
+
     </>
   );
 };
