@@ -7,7 +7,7 @@ interface IModalCard {
   setShowModal: (item: boolean) => void;
   children: React.ReactNode;
   title?: string;
-  subTitle?: string
+  subTitle?: string;
   className?: string;
   modalWidth?: string;
 }
@@ -42,7 +42,7 @@ const ModalCard = ({
           } `}
         >
           {/*container*/}
-          <div className="relative flex w-full flex-col rounded-lg border-0 bg-white shadow-lg outline-none focus:outline-none md:min-w-[400px] lg:min-w-[700px]">
+          <div className="relative flex  flex-col rounded-lg border-0 bg-white shadow-lg outline-none focus:outline-none  w-[400px] lg:min-w-[568px]">
             {/*content*/}
             <div className="flex justify-between px-8 pt-8 mb-2">
               <div className="flex gap-4">
@@ -55,7 +55,9 @@ const ModalCard = ({
                 />
                 <div className="flex flex-col ">
                   <div className={className}>{title}</div>
-                  <p className="text-[#475467] text-sm font-normal">{subTitle}</p>
+                  <p className="text-[#475467] text-sm font-normal">
+                    {subTitle}
+                  </p>
                 </div>
               </div>
               <div className="relative px-8">
@@ -67,7 +69,7 @@ const ModalCard = ({
                 />
               </div>
             </div>
-<hr className="mb-3"/>
+            <hr className="mb-3" />
 
             <div className="px-8 pb-8">{children}</div>
           </div>

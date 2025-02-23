@@ -73,10 +73,6 @@ const Page: React.FC = () => {
     setDispatchModal(false);
   };
 
-  console.log(
-    cardRequestDetails.status,
-    cardRequestDetails.status === "in-progress"
-  );
   return (
     <div>
       <RequestDetailsHeader />

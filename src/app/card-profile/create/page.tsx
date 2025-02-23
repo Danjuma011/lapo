@@ -67,7 +67,7 @@ const Page: React.FC = () => {
             <p className="mb-5">Profile Details</p>
             {/* TaskFormValues */}
             <div className="flex flex-wrap gap-4 w-[100%] justify-between ">
-              <div className="min-w-[42%]">
+              <div className="w-[100%]  md:w-[42%]">
                 <Input
                   type="edit"
                   inputType="text"
@@ -77,7 +77,7 @@ const Page: React.FC = () => {
                   error={errors?.cardName?.message}
                 />
               </div>
-              <div className="min-w-[42%]">
+              <div className="w-[100%]  md:w-[42%]">
                 <Input
                   type="edit"
                   inputType="text"
@@ -87,7 +87,7 @@ const Page: React.FC = () => {
                   error={errors?.binPrefix?.message}
                 />
               </div>
-              <div className="min-w-[42%]">
+              <div className="w-[100%]  md:w-[42%]">
                 <Dropdown
                   type="edit"
                   value={watch("cardScheme")}
@@ -99,7 +99,7 @@ const Page: React.FC = () => {
                   error={errors?.cardScheme?.message}
                 />
               </div>
-              <div className="min-w-[42%]">
+              <div className="w-[100%]  md:w-[42%]">
                 <Input
                   type="edit"
                   inputType="number"
@@ -109,7 +109,7 @@ const Page: React.FC = () => {
                   error={errors?.expiration?.message}
                 />
               </div>
-              <div className="min-w-[42%]">
+              <div className="w-[100%]  md:w-[42%]">
                 <Input
                   type="edit"
                   inputType="text"
@@ -119,7 +119,7 @@ const Page: React.FC = () => {
                   error={errors?.description?.message}
                 />
               </div>
-              <div className="min-w-[42%]">
+              <div className="w-[100%]  md:w-[42%]">
                 <Dropdown
                   type="edit"
                   value={watch("currency")}
@@ -131,7 +131,7 @@ const Page: React.FC = () => {
                   error={errors?.currency?.message}
                 />
               </div>
-              <div className="min-w-[42%]">
+              <div className="w-[100%]  md:w-[42%]">
                 <Dropdown
                   type="edit"
                   value={watch("branchBlacklist")}
