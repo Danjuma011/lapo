@@ -2,6 +2,7 @@
 
 import { generalDashboard } from "@/app/utils/Dashboard-links";
 import React, { useState } from "react";
+import { FaBars } from "react-icons/fa";
 import logo from "@public/svg/LAPO_Logo_2022-removebg-preview 1.svg";
 import Image from "next/image";
 import cadinfra from "@public/svg/cadinfra.svg";
@@ -9,7 +10,7 @@ import { useRouter } from "next/navigation";
 import { GrHomeRounded } from "react-icons/gr";
 import { usePathname } from "next/navigation";
 import { CiLogin } from "react-icons/ci";
-import img from "@public/svg/home.svg";
+
 
 const Sidebar = () => {
   const router = useRouter();
@@ -28,13 +29,7 @@ const Sidebar = () => {
         onClick={toggleSidebar}
         className="lg:hidden fixed top-4 left-4 z-20 p-2  text-[#000000] rounded"
       >
-       <Image
-           src={img}
-           alt="manageCard"
-           width={20}
-           height={20}
-           className="mb-1"
-         />
+        <FaBars size={24} />
       </button>
 
       {/* Sidebar */}
