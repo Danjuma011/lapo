@@ -166,7 +166,6 @@ const Page = () => {
               </div>
             ))}
           </div>
-
           <div className="flex flex-col md:flex-row justify-between gap-4 mb-4 w-full">
             <div className="w-full md:w-1/2 h-96">
               <MonthlyIssuance />
