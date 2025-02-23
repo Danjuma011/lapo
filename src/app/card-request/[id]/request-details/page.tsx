@@ -15,7 +15,7 @@ import { cardRequests } from "@/app/utils/db";
 import Input from "@/app/utils/Inputs";
 import RequestDetailsHeader from "@/app/components/request-details-header";
 
-const Page: React.FC<CardRequest> = () => {
+const Page: React.FC = () => {
   const [showProductionModal, setShowProductionModal] =
     useState<boolean>(false);
   const [dispatchModal, setDispatchModal] = useState<boolean>(false);
