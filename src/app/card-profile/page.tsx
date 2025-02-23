@@ -3,17 +3,15 @@ import React, { useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import { LuPen } from "react-icons/lu";
 import { RiDeleteBinLine } from "react-icons/ri";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { cardProfile } from "@/app/utils/db";
 import SearchBar from "@/component/SearchBar";
 import CardProfileHeader from "../components/card-profile-header";
 
 const Page = () => {
-  const pathName = usePathname();
   const router = useRouter();
   const [search, setSearch] = useState("");
 
-  // Filter card profiles by cardName
   const filteredCards = cardProfile.filter((card) =>
     card.cardName.toLowerCase().includes(search.toLowerCase())
   );
@@ -39,7 +37,7 @@ const Page = () => {
           </div>
 
           <button
-            onClick={() => router.push(`${pathName}/create`)}
+            onClick={() => router.push(`/card-profile/create`)}
             className="bg-[#014DAF] text-[#fefefe] text-sm font-semibold py-2.5 px-5 rounded-md flex items-center gap-2 whitespace-nowrap hover:bg-[#013B82] focus:outline-none focus:ring-2 focus:ring-blue-300"
           >
             <FaPlus className="flex-shrink-0" />

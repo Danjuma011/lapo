@@ -1,25 +1,29 @@
 "use client";
 
 import { generalDashboard } from "@/app/utils/Dashboard-links";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
 import logo from "@public/svg/LAPO_Logo_2022-removebg-preview 1.svg";
 import Image from "next/image";
 import cadinfra from "@public/svg/cadinfra.svg";
 import { useRouter } from "next/navigation";
 import { GrHomeRounded } from "react-icons/gr";
-import { usePathname } from "next/navigation";
 import { CiLogin } from "react-icons/ci";
 
 const Sidebar = () => {
   const router = useRouter();
-  const pathname = usePathname();
-
+  const [pathname, setPathname] = useState("/");
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setPathname(window.location.pathname);
+    }
+  }, []);
 
   return (
     <>
@@ -73,7 +77,7 @@ const Sidebar = () => {
                   }`}
                 >
                   {item.icon &&
-                    (location.pathname === item.href ? (
+                    (pathname === item.href ? (
                       <item.boldIcon className="w-4 h-4 mr-3 text-[#014DAF]" />
                     ) : (
                       <item.icon className="w-4 h-4 mr-3 text-[#808080]" />
