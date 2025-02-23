@@ -4,6 +4,7 @@ import {
     MdManageAccounts,
   } from "react-icons/md";
 
+
   import {
     IoDocumentTextOutline,
     IoDocumentTextSharp,
@@ -13,18 +14,13 @@ import { AiFillMessage, AiOutlineMessage } from "react-icons/ai";
 
 
 export const generalDashboard = [
-    {
-      label: "Dashboard",
-      href: "/dashboard",
-      icon: MdOutlineDashboard,
-      boldIcon: BiSolidDashboard,
-    },
     // {
-    //   label: "MAIN MENU",
+    //   label: "Dashboard",
     //   href: "/dashboard",
-    //   // icon: MdOutlineDashboard,
-    //   // boldIcon: BiSolidDashboard,
+    //   icon: MdOutlineDashboard,
+    //   boldIcon: BiSolidDashboard,
     // },
+
     {
       label: "Branches",
       href: "/dashboard",
@@ -99,6 +95,93 @@ export const generalDashboard = [
       boldIcon: MdManageAccounts,
     },
   ];
+// export const generalDashboard = [
+//     {
+//       label: "Dashboard",
+//       href: "/dashboard",
+//       icon: MdOutlineDashboard,
+//       boldIcon: BiSolidDashboard,
+//     },
+//     // {
+//     //   label: "MAIN MENU",
+//     //   href: "/dashboard",
+//     //   // icon: MdOutlineDashboard,
+//     //   // boldIcon: BiSolidDashboard,
+//     // },
+//     {
+//       label: "Branches",
+//       href: "/dashboard",
+//       icon: MdOutlineDashboard,
+//       boldIcon: BiSolidDashboard,
+//     },
+//     {
+//       label: "Roles",
+//       href: "/dashboard/stakeholders-overview",
+//       icon: IoDocumentTextOutline,
+//       boldIcon: IoDocumentTextSharp,
+//     },
+   
+//     {
+//       label: "Users",
+//       href: "/dashboard/messages",
+//       icon: AiOutlineMessage,
+//       boldIcon: AiFillMessage,
+//     },
+//     {
+//       label: "   Card Scheme",
+//       href: "/dashboard/user-management",
+//       icon: MdOutlineManageAccounts,
+//       boldIcon: MdManageAccounts,
+//     },
+//     {
+//       label: "  Card Profile   ",
+//       href: "/dashboard/card-profile",
+//       icon: MdOutlineManageAccounts,
+//       boldIcon: MdManageAccounts,
+//     },
+//     {
+//       label: "Card Request",
+//       href: "dashboard/card-request",
+//       icon: MdOutlineManageAccounts,
+//       boldIcon: MdManageAccounts,
+//     },
+//     {
+//       label: " Stock ",
+//       href: "/dashboard/user-management",
+//       icon: MdOutlineManageAccounts,
+//       boldIcon: MdManageAccounts,
+//     },
+//     {
+//       label: " Cards ",
+//       href: "/dashboard/user-management",
+//       icon: MdOutlineManageAccounts,
+//       boldIcon: MdManageAccounts,
+//     },
+//     {
+//       label: "   Authorization List ",
+//       href: "/dashboard/user-management",
+//       icon: MdOutlineManageAccounts,
+//       boldIcon: MdManageAccounts,
+//     },
+//     {
+//       label: "   Authorization Queue ",
+//       href: "/dashboard/user-management",
+//       icon: MdOutlineManageAccounts,
+//       boldIcon: MdManageAccounts,
+//     },
+//     {
+//       label: "   Trail ",
+//       href: "/dashboard/user-management",
+//       icon: MdOutlineManageAccounts,
+//       boldIcon: MdManageAccounts,
+//     },
+//     {
+//       label: "   Account ",
+//       href: "/dashboard/user-management",
+//       icon: MdOutlineManageAccounts,
+//       boldIcon: MdManageAccounts,
+//     },
+//   ];
   
 
   

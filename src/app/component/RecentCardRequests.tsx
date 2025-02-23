@@ -1,7 +1,11 @@
 import React from 'react';
 import { BsArrowsAngleExpand } from "react-icons/bs";
 
-const RecentCardRequests = () => {
+interface RecentCardRequestsProps {
+  className?: string; // Optional className prop
+}
+
+  const RecentCardRequests: React.FC<RecentCardRequestsProps> = ({ className }) => {
   const cardRequests = [
     {
       branch: 'Corporate',
@@ -30,7 +34,7 @@ const RecentCardRequests = () => {
   ];
 
   return (
-    <div className='bg-[#fefefe] rounded-lg px-3 pb-5 pt-3 w-1/2'>
+    <div className={` h-96 p-4 bg-white shadow-md rounded-lg ${className}`}>
       <div className='flex justify-between'>
         <h2 className='text-lg font-medium mb-3'>Recent Card Requests</h2>
         <BsArrowsAngleExpand className="cursor-pointer" />

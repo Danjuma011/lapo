@@ -16,6 +16,7 @@ import RecentCardRequests from "@/app/component/RecentCardRequests";
 import MonthlyIssuance from "@/app/component/MonthlyIssuance";
 import WeeklyIncome from "@/app/component/WeeklyIncome";
 import CardStatusDistribution from "@/app/component/CardStatusDistribution";
+// import Header from "./Header";
 
 const cardData = [
   { id: 1, label: "Manage a Card", icon: manageCard },
@@ -74,6 +75,9 @@ const analyticsCard = [
 const Clone = () => {
   return (
     <>
+{/* <Header /> */}
+
+
       <p className="text-lg font-bold mb-1">
         Hi Nazeer, what would you like to do today?
       </p>
@@ -89,7 +93,7 @@ const Clone = () => {
           {cardData.map((card) => (
             <div
               key={card.id}
-              className="flex-shrink-0 flex items-center bg-[#F1F7FF] p-2 pl-4 rounded-lg w-[278px] gap-4 hover:bg-[#E0E7FF] transition-colors"
+              className="flex-shrink-0 flex items-center bg-[#F1F7FF] p-2 pl-4 rounded-lg w-[23.5%] gap-4 hover:bg-[#E0E7FF] transition-colors"
             >
               <Image src={card.icon} alt="manageCard" width={24} height={24} />
               <span className="text-sm font-medium">{card.label}</span>
@@ -103,7 +107,7 @@ const Clone = () => {
         <hr className="flex-grow border-t border-gray-300" />
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4 justify-between">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-4 justify-between">
         {analyticsCard.map((card, index) => (
           <div
             key={index}
@@ -152,14 +156,14 @@ const Clone = () => {
         ))}
       </div>
 
-      <div className="flex justify-between gap-4 mb-4">
-        <MonthlyIssuance />
-        <RecentCardRequests />
-      </div>
+      <div className="flex flex-col md:flex-row justify-between gap-4 mb-4 w-full">
+  <MonthlyIssuance className="w-full md:w-1/2" />
+  <RecentCardRequests className="w-full md:w-1/2" />
+</div>
 
-      <div className="flex justify-between gap-4">
-        <WeeklyIncome />
-        <CardStatusDistribution />
+<div className="flex flex-col md:flex-row justify-between gap-4 mb-4 w-full">
+<WeeklyIncome className="w-full md:w-1/2" />
+        <CardStatusDistribution className="w-full md:w-1/2" />
       </div>
     </>
   );

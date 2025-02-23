@@ -6,7 +6,7 @@ import HeaderSearchBar from "../../component/HeaderSearchBar";
 
 const Header = () => {
   return (
-    <header className="border border-b-2  p-4 ">
+    <header className="border border-b-2  p-4 bg-[#fefefe] ">
       <div className="flex justify-between">
         <div className="flex items-center gap-5">
           <CgHome />
