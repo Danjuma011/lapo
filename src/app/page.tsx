@@ -80,8 +80,8 @@ const Page = () => {
       <Header />
       <div className="flex-1 overflow-auto p-4">
         <>
-          <div className="flex justify-between items-center">
-            <p className="text-lg font-bold mb-1">
+          <div className="flex justify-between items-center gap-4">
+            <p className="text-sm md:text-lg font-bold mb-1 text-wrap">
               Hi Nazeer, what would you like to do today?
             </p>
 

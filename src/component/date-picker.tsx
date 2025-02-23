@@ -6,8 +6,7 @@ const CalendarDatePicker = () => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   return (
-    <div className="flex items-center border border-gray-400 px-2 py-2 rounded-md gap-2">
-    
+    <div className="flex items-center border border-gray-400 p-1 rounded-md gap-1">
       <input
         ref={inputRef}
         type="date"
