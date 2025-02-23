@@ -18,7 +18,6 @@ import WeeklyIncome from "@/component/WeeklyIncome";
 import CardStatusDistribution from "@/component/CardStatusDistribution";
 import Header from "./components/Header";
 import CalendarDatePicker from "@/component/date-picker";
-// import CustomDatePickers from "@/component/date-picker";
 
 const cardData = [
   { id: 1, label: "Manage a Card", icon: manageCard },
@@ -80,16 +79,14 @@ const Page = () => {
       <Header />
       <div className="flex-1 overflow-auto p-4">
         <>
-            <div className="flex justify-between items-center">
-              <p className="text-lg font-bold mb-1">
-                Hi Nazeer, what would you like to do today?
-              </p>
+          <div className="flex justify-between items-center">
+            <p className="text-lg font-bold mb-1">
+              Hi Nazeer, what would you like to do today?
+            </p>
 
-              <CalendarDatePicker />
-            </div>
+            <CalendarDatePicker />
+          </div>
 
-           
-          
           <p className="text-xs font-medium mb-4">
             Last login: 26/11/2024 14:39:58
           </p>
