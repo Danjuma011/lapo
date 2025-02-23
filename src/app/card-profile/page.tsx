@@ -38,19 +38,8 @@ const Page = () => {
             />
           </div>
 
-          {/* <button
-            onClick={() => router.push(`${pathName}/create`)}
-            className="bg-[#014DAF] text-[#fefefe] text-sm font-semibold py-2.5 px-5 rounded-md flex items-center gap-2 whitespace-nowrap hover:bg-[#013B82] focus:outline-none focus:ring-2 focus:ring-blue-300"
-          >
-            <FaPlus className="flex-shrink-0" />
-            <span>Add Profile</span>
-          </button> */}
           <button
-            onClick={() => {
-              if (typeof window !== "undefined") {
-                router.push(`${pathName}/create`);
-              }
-            }}
+            onClick={() => router.push(`${pathName}/create`)}
             className="bg-[#014DAF] text-[#fefefe] text-sm font-semibold py-2.5 px-5 rounded-md flex items-center gap-2 whitespace-nowrap hover:bg-[#013B82] focus:outline-none focus:ring-2 focus:ring-blue-300"
           >
             <FaPlus className="flex-shrink-0" />
