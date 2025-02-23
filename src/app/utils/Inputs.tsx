@@ -48,7 +48,6 @@ const Input: React.FC<InputProps> = ({
   // Error styles
   const errorStyles: React.CSSProperties = {
     borderColor: "#FF4D4D",
-    
   };
 
   // Apply styles based on props
