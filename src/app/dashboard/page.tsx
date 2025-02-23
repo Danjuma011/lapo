@@ -152,14 +152,14 @@ const Page = () => {
         ))}
       </div>
 
-      <div className="flex justify-between gap-4 mb-4">
-        <MonthlyIssuance />
-        <RecentCardRequests />
-      </div>
+      <div className="flex flex-col md:flex-row justify-between gap-4 mb-4 w-full">
+  <MonthlyIssuance className="w-full md:w-1/2" />
+  <RecentCardRequests className="w-full md:w-1/2" />
+</div>
 
-      <div className="flex justify-between gap-4">
-        <WeeklyIncome />
-        <CardStatusDistribution />
+<div className="flex flex-col md:flex-row justify-between gap-4 mb-4 w-full">
+<WeeklyIncome className="w-full md:w-1/2" />
+        <CardStatusDistribution className="w-full md:w-1/2" />
       </div>
     </>
   );
