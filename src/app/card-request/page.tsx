@@ -1,4 +1,3 @@
-"use client";
 import { CardRequest } from "@/app/utils/type";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
