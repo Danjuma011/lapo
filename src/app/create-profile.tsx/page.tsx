@@ -1,13 +1,11 @@
 "use client";
-import SearchBar from "@/component/HeaderSearchBar";
+import SearchBar from "@/component/SearchBar";
 import { CardProfile } from "@/app/utils/type";
 import React from "react";
 
 import { cardProfile } from "@/app/utils/db";
 
-const Page: React.FC<CardProfile> = () => {
- 
-
+const Page: React.FC = () => {
   return (
     <div className="bg-[#fefefe] rounded-lg px-3 pb-5 pt-3 ">
       <h1 className="font-bold text-lg mb-1">Create Profile</h1>
@@ -17,7 +15,7 @@ const Page: React.FC<CardProfile> = () => {
 
       <hr className="my-2 h-[5px] text-[#98A2B3]" />
       <div className="flex justify-between items-center w-full">
-        <SearchBar placeholder="Search by branch" />
+        <SearchBar placeHolder="Search by branch" />
       </div>
 
       <hr className="my-3 h-[5px] text-[#98A2B3]" />
@@ -34,7 +32,7 @@ const Page: React.FC<CardProfile> = () => {
           </tr>
         </thead>
         <tbody>
-          {cardProfile.map((request, index) => (
+          {cardProfile.map((request: CardProfile, index) => (
             <tr
               key={index}
               className="border-b text-center text-[10px] font-normal text-[#475467]"
