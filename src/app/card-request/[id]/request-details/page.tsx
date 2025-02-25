@@ -37,7 +37,7 @@ const Page: React.FC = () => {
         case "Pending":
           setCurrentStage(2);
           break;
-        case "in-progress":
+        case "In Progress":
           setCurrentStage(3);
           break;
         case "Ready":
@@ -67,7 +67,7 @@ const Page: React.FC = () => {
 
   const handleInProgress = () => {
     setCurrentStage(3);
-    setCardRequestDetails({ ...cardRequestDetails, status: "in-progress" });
+    setCardRequestDetails({ ...cardRequestDetails, status: "In Progress" });
   };
 
   const handleReady = () => {
@@ -179,7 +179,7 @@ const Page: React.FC = () => {
               <p className="text-sm font-normal mb-3">Status</p>
               <span
                 className={`text-base font-medium py-2 px-4 rounded-3xl border ${
-                  cardRequestDetails.status === "in-progress"
+                  cardRequestDetails.status === "In Progress"
                     ? "border-[#FEDF89] bg-[#FFFAEB]"
                     : cardRequestDetails.status === "Ready"
                     ? "border-[#ABEFC6] bg-[#ECFDF3]"
@@ -190,7 +190,7 @@ const Page: React.FC = () => {
               >
                 <span
                   className={`${
-                    cardRequestDetails.status === "in-progress"
+                    cardRequestDetails.status === "In Progress"
                       ? "text-[#B54708]"
                       : cardRequestDetails.status === "Ready"
                       ? "text-[#067647]"
@@ -227,7 +227,7 @@ const Page: React.FC = () => {
                   disabled={currentStage !== 1}
                 />
                 <ActionButton
-                  text="Mark as in-progress"
+                  text="Mark as In Progress"
                   bgColor="#B54708"
                   icon={
                     <Image
