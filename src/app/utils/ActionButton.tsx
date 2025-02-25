@@ -19,7 +19,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
 }) => {
   return (
     <button
-      className={`text-[10px] flex items-center justify-start w-[400px] px-4 py-2 text-white rounded-lg shadow-md transition-opacity ${
+      className={`text-[10px] flex items-center justify-start w-[200px] lg:w-[400px] px-4 py-2 text-white rounded-lg shadow-md transition-opacity ${
         disabled ? "cursor-not-allowed" : "hover:opacity-90"
       } ${className}`}
       style={{
