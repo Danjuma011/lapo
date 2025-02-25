@@ -44,7 +44,7 @@ const Page: React.FC = () => {
           setCurrentStage(4);
           break;
         case "Acknowledged":
-          setCurrentStage(5);
+          setCurrentStage(6);
           break;
         default:
           setCurrentStage(1);
@@ -53,7 +53,11 @@ const Page: React.FC = () => {
   }, [cardRequestDetails]);
 
   if (!cardRequestDetails) {
-    return <div>Loading...</div>;
+    return (
+      <div className="grid place-items-center h-screen">
+        <div>Loading...</div>
+      </div>
+    );
   }
 
   // Handlers update both the stage and the status.
@@ -86,7 +90,7 @@ const Page: React.FC = () => {
 
   const handleAcknowledged = () => {
     // Final action – no further stage is set.
-    setCurrentStage(6);
+    // setCurrentStage(5);
     setCardRequestDetails({ ...cardRequestDetails, status: "Acknowledged" });
   };
 
