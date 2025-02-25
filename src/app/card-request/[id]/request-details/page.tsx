@@ -19,7 +19,7 @@ const Page: React.FC = () => {
   const [showProductionModal, setShowProductionModal] =
     useState<boolean>(false);
   const [dispatchModal, setDispatchModal] = useState<boolean>(false);
-  const [currentStage, setCurrentStage] = useState<number>(1);
+  const [currentStage, setCurrentStage] = useState<number>();
   const [cardRequestDetails, setCardRequestDetails] = useState<CardRequest>();
   const params = useParams();
   const { id } = params;
@@ -31,9 +31,39 @@ const Page: React.FC = () => {
     }
   }, [id]);
 
+  useEffect(() => {
+    if (cardRequestDetails) {
+      switch (cardRequestDetails.status) {
+        case "Pending":
+          setCurrentStage(2);
+          break;
+        case "in-progress":
+          setCurrentStage(3);
+          break;
+        case "Ready":
+          setCurrentStage(4);
+          break;
+        case "Acknowledged":
+          setCurrentStage(5);
+          break;
+        default:
+          setCurrentStage(1);
+      }
+    }
+  }, [cardRequestDetails]);
+
   if (!cardRequestDetails) {
     return <div>Loading...</div>;
   }
+
+  // Handlers update both the stage and the status.
+  const handleDownload = () => {
+    setTimeout(() => {
+      setShowProductionModal(true);
+      setCurrentStage(2);
+      setCardRequestDetails({ ...cardRequestDetails, status: "Pending" });
+    }, 1000);
+  };
 
   const handleInProgress = () => {
     setCurrentStage(3);
@@ -49,28 +79,24 @@ const Page: React.FC = () => {
     setTimeout(() => {
       setDispatchModal(true);
       setCurrentStage(5);
+      // You can update the status here if needed.
       setCardRequestDetails({ ...cardRequestDetails, status: "Ready" });
     }, 1000);
   };
 
   const handleAcknowledged = () => {
+    // Final action – no further stage is set.
     setCurrentStage(6);
     setCardRequestDetails({ ...cardRequestDetails, status: "Acknowledged" });
-  };
-
-  const handleDownload = () => {
-    setTimeout(() => {
-      setShowProductionModal(true);
-      setCurrentStage(2);
-      setCardRequestDetails({ ...cardRequestDetails, status: "Pending" });
-    }, 1000);
   };
 
   const handleContinue = () => {
     setShowProductionModal(false);
   };
+
   const handleDispatchContinue = () => {
     setDispatchModal(false);
+    setCurrentStage(5);
   };
 
   return (
@@ -154,27 +180,24 @@ const Page: React.FC = () => {
               <span
                 className={`text-base font-medium py-2 px-4 rounded-3xl border ${
                   cardRequestDetails.status === "in-progress"
-                    ? "border-[#FEDF89] bg-[#FFFAEB] "
+                    ? "border-[#FEDF89] bg-[#FFFAEB]"
                     : cardRequestDetails.status === "Ready"
-                    ? "border-[#ABEFC6] bg-[#ECFDF3] "
+                    ? "border-[#ABEFC6] bg-[#ECFDF3]"
                     : cardRequestDetails.status === "Acknowledged"
-                    ? "border-[#B2DDFF] bg-[#EFF8FF] "
-                    : "border-[#EAECF0] bg-[#F9FAFB] "
+                    ? "border-[#B2DDFF] bg-[#EFF8FF]"
+                    : "border-[#EAECF0] bg-[#F9FAFB]"
                 }`}
               >
                 <span
-                  className={
-                    `` +
-                    `${
-                      cardRequestDetails.status === "in-progress"
-                        ? " text-[#B54708]"
-                        : cardRequestDetails.status === "Ready"
-                        ? " text-[#067647]"
-                        : cardRequestDetails.status === "Acknowledged"
-                        ? " text-[#175CD3]"
-                        : " text-[#344054]"
-                    }`
-                  }
+                  className={`${
+                    cardRequestDetails.status === "in-progress"
+                      ? "text-[#B54708]"
+                      : cardRequestDetails.status === "Ready"
+                      ? "text-[#067647]"
+                      : cardRequestDetails.status === "Acknowledged"
+                      ? "text-[#175CD3]"
+                      : "text-[#344054]"
+                  }`}
                 >
                   {cardRequestDetails.status}
                 </span>
@@ -194,7 +217,7 @@ const Page: React.FC = () => {
                   icon={
                     <Image
                       src={fileDownload}
-                      alt="manageCard"
+                      alt="Download"
                       width={20}
                       height={20}
                       className="mb-1"
@@ -209,7 +232,7 @@ const Page: React.FC = () => {
                   icon={
                     <Image
                       src={loading}
-                      alt="manageCard"
+                      alt="In Progress"
                       width={20}
                       height={20}
                       className="mb-1"
@@ -224,7 +247,7 @@ const Page: React.FC = () => {
                   icon={
                     <Image
                       src={check}
-                      alt="manageCard"
+                      alt="Ready"
                       width={20}
                       height={20}
                       className="mb-1"
@@ -239,7 +262,7 @@ const Page: React.FC = () => {
                   icon={
                     <Image
                       src={sent}
-                      alt="manageCard"
+                      alt="Dispatch"
                       width={20}
                       height={20}
                       className="mb-1"
@@ -254,7 +277,7 @@ const Page: React.FC = () => {
                   icon={
                     <Image
                       src={checkCircle}
-                      alt="manageCard"
+                      alt="Acknowledged"
                       width={20}
                       height={20}
                       className="mb-1"
