@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { cardRequests } from "@/app/utils/db";
 import CardRequestHeader from "../components/card-request-header";
 import SearchBar from "@/component/SearchBar";
+import { StatusColors } from "@/static/statusEnum";
 
 const Page: React.FC = () => {
   const router = useRouter();
@@ -75,7 +76,7 @@ const Page: React.FC = () => {
                         {request.dateRequested}
                       </td>
                       <td className="py-3 border border-gray-300">
-                        <span
+                        {/* <span
                           className={`inline-flex items-center px-2 py-1 rounded-full border ${
                             request.status === "Ready"
                               ? "border-green-500 bg-green-100 text-green-500"
@@ -86,6 +87,21 @@ const Page: React.FC = () => {
                               : request.status === "Pending"
                               ? "border-[#EAECF0] bg-[#F9FAFB] text-[#344054]"
                               : "border-gray-500 bg-gray-100 text-gray-500"
+                          }`}
+                        >
+                          {request.status}
+                        </span> */}
+                        <span
+                          className={`inline-flex items-center px-2 py-1 rounded-full border ${
+                            request.status === "Ready"
+                              ? `${StatusColors.Ready.border} ${StatusColors.Ready.background} ${StatusColors.Ready.text}`
+                              : request.status === "In Progress"
+                              ? `${StatusColors.InProgress.border} ${StatusColors.InProgress.background} ${StatusColors.InProgress.text}`
+                              : request.status === "Acknowledged"
+                              ? `${StatusColors.Acknowledged.border} ${StatusColors.Acknowledged.background} ${StatusColors.Acknowledged.text}`
+                              : request.status === "Pending"
+                              ? `${StatusColors.Pending.border} ${StatusColors.Pending.background} ${StatusColors.Pending.text}`
+                              : `${StatusColors.default.border} ${StatusColors.default.background} ${StatusColors.default.text}`
                           }`}
                         >
                           {request.status}

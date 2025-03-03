@@ -14,6 +14,7 @@ import fileDownload from "@public/svg/file-download-02.svg";
 import { cardRequests } from "@/app/utils/db";
 import Input from "@/app/utils/Inputs";
 import RequestDetailsHeader from "@/app/components/request-details-header";
+import { StatusColors } from "@/static/statusEnum";
 
 const Page: React.FC = () => {
   const [showProductionModal, setShowProductionModal] =
@@ -181,26 +182,27 @@ const Page: React.FC = () => {
 
             <div className="w-full sm:w-[48%] lg:w-[45%] text-sm font-normal">
               <p className="text-sm font-normal mb-3">Status</p>
+
               <span
                 className={`text-base font-medium py-2 px-4 rounded-3xl border ${
                   cardRequestDetails.status === "In Progress"
-                    ? "border-[#FEDF89] bg-[#FFFAEB]"
+                    ? `${StatusColors.InProgress.border} ${StatusColors.InProgress.background}`
                     : cardRequestDetails.status === "Ready"
-                    ? "border-[#ABEFC6] bg-[#ECFDF3]"
+                    ? `${StatusColors.Ready.border} ${StatusColors.Ready.background}`
                     : cardRequestDetails.status === "Acknowledged"
-                    ? "border-[#B2DDFF] bg-[#EFF8FF]"
-                    : "border-[#EAECF0] bg-[#F9FAFB]"
+                    ? `${StatusColors.Acknowledged.border} ${StatusColors.Acknowledged.background}`
+                    : `${StatusColors.default.border} ${StatusColors.default.background}`
                 }`}
               >
                 <span
                   className={`${
                     cardRequestDetails.status === "In Progress"
-                      ? "text-[#B54708]"
+                      ? StatusColors.InProgress.text
                       : cardRequestDetails.status === "Ready"
-                      ? "text-[#067647]"
+                      ? StatusColors.Ready.text
                       : cardRequestDetails.status === "Acknowledged"
-                      ? "text-[#175CD3]"
-                      : "text-[#344054]"
+                      ? StatusColors.Acknowledged.text
+                      : StatusColors.default.text
                   }`}
                 >
                   {cardRequestDetails.status}
