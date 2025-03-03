@@ -1,11 +1,9 @@
-import React from "react";
-
 interface DropdownProps {
   type: "edit" | "no-edit";
   inputType?: "text" | "number";
   value: string | number;
   onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
-  options: (string | number)[];
+  options: { name: string; id: string }[]; // Update this line
   placeholder?: string;
   className?: string;
   label?: string;
@@ -48,9 +46,9 @@ const Dropdown: React.FC<DropdownProps> = ({
               {placeholder}
             </option>
           )}
-          {options.map((option, index) => (
-            <option key={index} value={option} className="">
-              {option}
+          {options.map((option) => (
+            <option key={option.id} value={option.id} className="">
+              {option.name}
             </option>
           ))}
         </select>

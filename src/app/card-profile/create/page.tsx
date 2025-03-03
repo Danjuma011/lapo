@@ -10,6 +10,12 @@ import { FaPlus } from "react-icons/fa";
 import Table from "@/app/utils/Table";
 import FeeModal from "@/app/utils/modal/FeeModal";
 import CreateProfileHeader from "@/app/components/create-profile-header";
+import { convertEnumToDropdownItem } from "@/services/formats";
+import {
+  branchBlacklistEnum,
+  cardSchemeEnum,
+  CurrencyEnum,
+} from "@/static/enum";
 
 const Page: React.FC = () => {
   const [showFeeModal, setShowFeeModal] = useState(false);
@@ -93,7 +99,7 @@ const Page: React.FC = () => {
                   value={watch("cardScheme")}
                   {...register("cardScheme")}
                   onChange={(e) => setValue("cardScheme", e.target.value)}
-                  options={["Verve", "MasterCard", "Visa"]}
+                  options={convertEnumToDropdownItem(cardSchemeEnum)}
                   placeholder="Select Card Scheme"
                   label="Card Scheme"
                   error={errors?.cardScheme?.message}
@@ -125,7 +131,7 @@ const Page: React.FC = () => {
                   value={watch("currency")}
                   {...register("currency")}
                   onChange={(e) => setValue("currency", e.target.value)}
-                  options={["NGN", "USD", "POUNDS"]}
+                  options={convertEnumToDropdownItem(CurrencyEnum)}
                   placeholder="Select Currency"
                   label="Currency"
                   error={errors?.currency?.message}
@@ -137,7 +143,7 @@ const Page: React.FC = () => {
                   value={watch("branchBlacklist")}
                   {...register("branchBlacklist")}
                   onChange={(e) => setValue("branchBlacklist", e.target.value)}
-                  options={["Head Office", "Branch"]}
+                  options={convertEnumToDropdownItem(branchBlacklistEnum)}
                   placeholder="Branch Blacklist"
                   label="branchBlacklist"
                   error={errors?.branchBlacklist?.message}
