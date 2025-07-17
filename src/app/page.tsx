@@ -27,11 +27,6 @@ const cardData = [
   { id: 4, label: "Review Card Requests", icon: reviewCardRequests },
 ];
 
-for (let i = 1; i <= 20; i++) {
-  if (i % 2 === 0) {
-    console.log(i, "even");
-  } else console.log(i, "false");
-}
 const analyticsCard = [
   {
     title: "Total Active Cards",
