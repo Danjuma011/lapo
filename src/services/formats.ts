@@ -1,21 +1,13 @@
-export const convertEnumToDropdownItem = (
-  enumObject: Record<string, string | number>
-) => {
-  const items = Object.entries(enumObject)
-    .filter(([, value]) => typeof value === "number")
-    .map(([key, value]) => ({
-      name: camelCaseToSpaceSeparated(key),
-      id: value.toString(),
-    }));
-  return items;
-};
+import { type QueryParams } from "./types";
 
-export const camelCaseToSpaceSeparated = (str: string) => {
-  return (
-    str
-      // Insert a space before all capital letters
-      .replace(/([A-Z])/g, " $1")
-      // Remove the leading space if it exists
-      .replace(/^ /, "")
-  );
+export const buildQueryString = (params: QueryParams): string => {
+  const query = Object.entries(params)
+    .filter(([, value]) => value !== undefined)
+    .map(
+      ([key, value]) =>
+        `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
+    )
+    .join("&");
+
+  return query ? `?${query}` : "";
 };
