@@ -10,7 +10,7 @@ import { FaPlus } from "react-icons/fa";
 import Table from "@/app/utils/Table";
 import FeeModal from "@/app/utils/modal/FeeModal";
 import CreateProfileHeader from "@/app/components/create-profile-header";
-import { convertEnumToDropdownItem } from "@/services/formats";
+import { convertEnumToDropdownItem } from "@/app/utils/helper";
 import {
   branchBlacklistEnum,
   cardSchemeEnum,

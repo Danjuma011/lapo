@@ -68,27 +68,50 @@ const Sidebar = () => {
             MAIN MENU
           </h2>
           <ul>
-            {generalDashboard.map((item, index) => (
-              <li key={index} className="mb-2">
-                <a
-                  href={item.href}
-                  className={`flex items-center p-2 hover:bg-[#F1F7FF] rounded transition-colors ${
-                    pathname === item.href ? "bg-[#F6F6F6]" : ""
-                  }`}
-                >
-                  {item.icon &&
-                    (pathname === item.href ? (
-                      <item.boldIcon className="w-4 h-4 mr-3 text-[#014DAF]" />
-                    ) : (
-                      <item.icon className="w-4 h-4 mr-3 text-[#808080]" />
-                    ))}
-
-                  <span className="font-normal text-xs text-[#808080]">
-                    {item.label}
-                  </span>
-                </a>
-              </li>
-            ))}
+            {generalDashboard.map((item, index) => {
+              // Only clickable if href is not empty
+              const isClickable = !!item.href;
+              // Special highlight for active clickable items
+              const isActive = pathname === item.href && isClickable;
+              return (
+                <li key={index} className="mb-2">
+                  {isClickable ? (
+                    <a
+                      href={item.href}
+                      className={`flex items-center p-2 hover:bg-[#F1F7FF] rounded transition-colors ${
+                        isActive ? "bg-[#F6F6F6]" : ""
+                      }`}
+                    >
+                      {item.icon &&
+                        (isActive ? (
+                          <item.boldIcon className="w-4 h-4 mr-3 text-[#014DAF]" />
+                        ) : (
+                          <item.icon className="w-4 h-4 mr-3 text-[#808080]" />
+                        ))}
+                      <span
+                        className={`font-normal text-xs ${
+                          isActive ? "text-[#014DAF]" : "text-[#808080]"
+                        }`}
+                      >
+                        {item.label.trim()}
+                      </span>
+                    </a>
+                  ) : (
+                    <div
+                      className="flex items-center p-2 rounded cursor-not-allowed opacity-40 bg-transparent"
+                      title="Not available"
+                    >
+                      {item.icon && (
+                        <item.icon className="w-4 h-4 mr-3 text-[#808080]" />
+                      )}
+                      <span className="font-normal text-xs text-[#808080]">
+                        {item.label.trim()}
+                      </span>
+                    </div>
+                  )}
+                </li>
+              );
+            })}
           </ul>
         </div>
 
