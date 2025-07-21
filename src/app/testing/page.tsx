@@ -46,9 +46,9 @@ const Page = () => {
 
         <button
           onClick={() => {
-            // setstartButton(!startButton);
+            setstartButton(!startButton);
             // or
-            setstartButton((prev) => !prev);
+            // setstartButton((prev) => !prev);
           }}
         >
           {startButton ? "start" : "stop"}
