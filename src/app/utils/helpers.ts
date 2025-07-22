@@ -12,20 +12,30 @@ export const normalizeStatus = (status: string): string => {
 /**
  * Format date string to a readable format
  */
-// export const formatDate = (dateString: string): string => {
-//   try {
-//     const date = new Date(dateString);
-//     return date.toLocaleDateString("en-US", {
-//       year: "numeric",
-//       month: "short",
-//       day: "numeric",
-//       hour: "2-digit",
-//       minute: "2-digit",
-//     });
-//   } catch (error) {
-//     return dateString; // Return original string if parsing fails
-//   }
-// };
+export const formatDate = (dateString: string): string => {
+  try {
+    const date = new Date(dateString);
+
+    // Check if the date is valid
+    if (Number.isNaN(date.getTime())) {
+      return dateString;
+    }
+
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  } catch (error: unknown) {
+    // Properly handle the error (even if we're just returning the original string)
+    if (error instanceof Error) {
+      console.warn(`Date formatting failed: ${error.message}`);
+    }
+    return dateString;
+  }
+};
 
 /**
  * Format number with locale-specific formatting
