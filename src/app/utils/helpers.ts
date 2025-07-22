@@ -12,20 +12,20 @@ export const normalizeStatus = (status: string): string => {
 /**
  * Format date string to a readable format
  */
-export const formatDate = (dateString: string): string => {
-  try {
-    const date = new Date(dateString);
-    return date.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-      hour: "2-digit",
-      minute: "2-digit",
-    });
-  } catch (error) {
-    return dateString; // Return original string if parsing fails
-  }
-};
+// export const formatDate = (dateString: string): string => {
+//   try {
+//     const date = new Date(dateString);
+//     return date.toLocaleDateString("en-US", {
+//       year: "numeric",
+//       month: "short",
+//       day: "numeric",
+//       hour: "2-digit",
+//       minute: "2-digit",
+//     });
+//   } catch (error) {
+//     return dateString; // Return original string if parsing fails
+//   }
+// };
 
 /**
  * Format number with locale-specific formatting
@@ -50,16 +50,6 @@ export const formatCurrency = (
 /**
  * Debounce function to limit function calls
  */
-export const debounce = <T extends (...args: any[]) => any>(
-  func: T,
-  wait: number
-): ((...args: Parameters<T>) => void) => {
-  let timeout: NodeJS.Timeout;
-  return (...args: Parameters<T>) => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => func(...args), wait);
-  };
-};
 
 /**
  * Generate a random batch number
